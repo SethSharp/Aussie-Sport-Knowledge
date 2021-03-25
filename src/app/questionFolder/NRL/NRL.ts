@@ -1,0 +1,88 @@
+import { Question } from '../question';
+
+export const NRL: Question[] = [
+  {
+    question: 'NRL',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: false },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_1 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: true },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_2 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: true },
+    response_3: { response: 'R3', answer: false },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_3 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: false },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_4 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: false },
+    response_4: { response: 'R4', answer: true },
+  },
+  {
+    question: 'Test_5 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: true },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_6 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: true },
+    response_3: { response: 'R3', answer: false },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_7 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: true },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_8 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: true },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_9 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: false },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_10 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: true },
+    response_4: { response: 'R4', answer: false },
+  },
+  {
+    question: 'Test_11 question',
+    response_1: { response: 'R1', answer: true },
+    response_2: { response: 'R2', answer: false },
+    response_3: { response: 'R3', answer: false },
+    response_4: { response: 'R4', answer: false },
+  },
+];

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>quizPage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="questions" id="container">
+    <ion-label>
+      {{questions[questionPosition].question}}
+    </ion-label>
+    <ion-button color="warning"
+    (click)="checkAnswer(questions[questionPosition].response_1.answer)"> {{questions[questionPosition].response_1.response}}</ion-button>
+    <ion-button  color="warning"
+    (click)="checkAnswer(questions[questionPosition].response_2.answer)"> {{questions[questionPosition].response_2.response}}</ion-button>
+    <ion-button  color="warning"
+    (click)="checkAnswer(questions[questionPosition].response_3.answer)"> {{questions[questionPosition].response_3.response}}</ion-button>
+    <ion-button  color="warning"
+    (click)="checkAnswer(questions[questionPosition].response_4.answer)"> {{questions[questionPosition].response_4.response}}</ion-button>
+  </div>
+</ion-content>
