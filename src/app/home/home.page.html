@@ -1,17 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Aussie sport knowledge
-    </ion-title>
+    <ion-title> Welcome {{this.username}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="mainPage">
-    <ion-button (click)="playQuiz()"> Standard </ion-button>
-    <br>
-    <ion-button> Multiplayer </ion-button>
-    <br>
-    <ion-button> 1 V 1</ion-button>
-  </div>
+  <h1>Aussie Sport Knowledge  </h1>
+
+  <ion-button (click)="playMenu()" size="large"> Standard </ion-button>
+  <br />
+  <ion-button (click)="playMulti()" size="large"> Multiplayer </ion-button>
+  <br />
+  <ion-button (click)="navToLeader()" size="large"> Leaderboard </ion-button>
+  <br />
+
+  <ion-fab [hidden]="menuHidden" vertical="bottom" horizontal="left">
+    <ion-fab-button (click)="navToProf()"> <ion-icon name="person-outline"></ion-icon> </ion-fab-button>
+  </ion-fab>
+  <p> Copyright &copy; Seth Sharp - 2021</p>
 </ion-content>

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>questionModal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        Question:
+        <ion-input type="text" [(ngModel)]="qst"> </ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Response 1:
+        <ion-input type="text" [(ngModel)]="res_1"> </ion-input>
+      </ion-label>
+      <ion-checkbox (click)="onChange(1)"> </ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Response 2:
+        <ion-input type="text" [(ngModel)]="res_2"> </ion-input>
+      </ion-label>
+      <ion-checkbox (click)="onChange(2)"> </ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Response 3:
+        <ion-input type="text"  [(ngModel)]="res_3"> </ion-input>
+      </ion-label>
+      <ion-checkbox (click)="onChange(3)"> </ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Response 4:
+        <ion-input type="text" [(ngModel)]="res_4"> </ion-input>
+      </ion-label>
+      <ion-checkbox (click)="onChange(4)"> </ion-checkbox>
+    </ion-item>
+    <ion-button expand="full" (click)="closeModal()"> {{editaddbtn}} </ion-button>
+  </ion-list>
+
+
+</ion-content>

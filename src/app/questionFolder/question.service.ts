@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Question } from './question';
-import { QUESTIONS } from './mock-questions';
-import { NRL } from './NRL/NRL';
 
 @Injectable({
   providedIn: 'root',

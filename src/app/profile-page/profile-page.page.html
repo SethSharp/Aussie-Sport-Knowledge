@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button> BACK </ion-back-button>
+    </ion-buttons>
+    <ion-title> PROFILE </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>
+    <ion-icon name={{this.imgSrc}} > </ion-icon>
+    {{this.identifier}}
+  </h1>
+  <h3> {{ this.bio }} </h3>
+  <p>
+
+    DISPLAY STATS AND CHART ETC
+    <img src="../assets/images/piechart.png">
+
+  </p>
+
+  <ion-button (click)="editProfileModal()"> Edit profile </ion-button>
+</ion-content>

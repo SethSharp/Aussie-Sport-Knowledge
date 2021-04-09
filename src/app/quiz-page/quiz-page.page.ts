@@ -1,13 +1,15 @@
 import { QuestionService } from './../questionFolder/question.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Question } from '../questionFolder/question';
 
 //Importing questions to pass as paramter
-import { QUESTIONS } from '../questionFolder/mock-questions';
 import { NRL } from '../questionFolder/NRL/NRL';
 import { CRICKET } from '../questionFolder/CRICKET/CRICKET';
 import { AFL } from '../questionFolder/AFL/AFL';
+
+// Importing the user to adjust the score
+import { User } from './../userInfo';
 
 @Component({
   selector: 'app-quiz-page',
@@ -17,39 +19,48 @@ import { AFL } from '../questionFolder/AFL/AFL';
 export class QuizPagePage implements OnInit {
   questions: Question[] = [];
   questionPosition = 0;
-  quizInfo = '';
+  quizParam = '';
+  title = ""
+  mode = ""
+  score = 0
 
   questionsAnswered = [];
   constructor(
     private questionService: QuestionService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
-    this.questionPosition = 0;
+    this.score = 0;
+  }
+  ionViewDidEnter() {
+    this.questionPosition = 0
   }
   ngOnInit() {
     //Need to assign question to question vlaue
-    this.quizInfo = 'NRL';
+    this.quizParam = this.route.snapshot.paramMap.get('information');
+    this.title = this.quizParam.substring(0,3)
+    this.mode = this.quizParam.substring(3,8)
     this.getQuestions();
-    this.questionPosition = 0;
   }
-
-
-  checkAnswer(correct: Boolean) {
-    console.log(this.questionPosition, this.questions.length);
-    if (this.questionPosition == this.questions.length - 1) {
-      this.router.navigateByUrl('/home');
-    }
-    if (correct) {
+  checkAnswer(ansPos: number) {
+    let curSpot = this.questions[this.questionPosition].answer;
+    if (curSpot == ansPos) {
       this.questionPosition++;
     } else {
-      console.log('Inorrect answer');
+      console.log('Inorrect answer')
+    }
+    if (this.questionPosition == this.questions.length) {
+      this.router.navigateByUrl('/home/test');
     }
   }
 
   getQuiz() {
-    switch (this.quizInfo) {
+    switch (this.title) {
       case 'NRL':
         {
+          if (this.mode == "EASY") {
+            // Return NRLEASY questions etc, for all
+          }
           return NRL;
         }
         break;
@@ -58,13 +69,13 @@ export class QuizPagePage implements OnInit {
           return AFL;
         }
         break;
-      case 'CRICKET':
+      case 'CRIC':
         {
           return CRICKET;
         }
         break;
       default: {
-        return QUESTIONS;
+        return AFL;
         break;
       }
     }
@@ -79,6 +90,6 @@ export class QuizPagePage implements OnInit {
 
     this.questionService
       .getQuestions(this.getQuiz())
-      .subscribe((questions) => (this.questions = questions)); //Returns an array of heroes
+      .subscribe((questions) => (this.questions = questions)); //Returns an array of questions
   }
 }

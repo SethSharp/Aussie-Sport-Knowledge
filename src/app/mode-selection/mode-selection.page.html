@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button> BACK </ion-back-button>
+    </ion-buttons>
+    <ion-title> Basic </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>
+    Select a sport and the difficulty
+  </h2>
+  <div>
+    <ion-fab vertical="start" horizontal="start">
+      <ion-label> NRL </ion-label>
+      <ion-fab-button>
+        <ion-icon name="american-football-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="end">
+        <ion-fab-button (click)="navToQuiz('NRLEASY')">
+          <ion-icon name="egg-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button (click)="navToQuiz('NRLMEDI')">
+          <ion-icon name="alert-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button (click)="navToQuiz('NRLHARD')">
+          <ion-icon name="barbell-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+    <br><br><br><br><br>
+
+    <ion-fab vertical="start" horizontal="start">
+      <ion-label> AFL </ion-label>
+      <ion-fab-button>
+        <ion-icon name="american-football-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="end">
+        <ion-fab-button (click)="navToQuiz('NRLEASY')">
+          <ion-icon name="egg-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button (click)="navToQuiz('NRLMEDI')">
+          <ion-icon name="alert-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button (click)="navToQuiz('NRLHARD')">
+          <ion-icon name="barbell-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+    <br><br><br><br>
+
+    <ion-fab vertical="start" horizontal="start">
+      <ion-label> CRICKET </ion-label>
+      <ion-fab-button>
+        <ion-icon name="american-football-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="end">
+        <ion-fab-button (click)="navToQuiz('NRLEASY')">
+          <ion-icon name="egg-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button (click)="navToQuiz('NRLMEDI')">
+          <ion-icon name="alert-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button (click)="navToQuiz('NRLHARD')">
+          <ion-icon name="barbell-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+
+  </div>
+
+
+</ion-content>

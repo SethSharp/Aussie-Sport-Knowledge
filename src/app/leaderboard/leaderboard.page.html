@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button> Back </ion-back-button>
+    </ion-buttons>
+    <ion-title> Global leaderboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p *ngIf="users.length==0; else elseBlock">No questions added yet</p>
+
+  <ng-template #elseBlock>
+    <ion-list
+      *ngFor="let u of users; index as i">
+      <ion-item>
+        {{ u.name }} - {{u.totalScore}}
+      </ion-item>
+    </ion-list>
+  </ng-template>
+</ion-content>

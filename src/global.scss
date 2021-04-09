@@ -24,3 +24,21 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-content {
+  --ion-background-color: #ffc409;
+}
+
+ion-button, ion-fab-button { // Background colour
+  --background: #008a25;
+  --background-hover: #89c790;
+  --background-activated: #89c790;
+}
+
+ion-back-button { // Text colour
+  --color: #008a25;
+}
+
+ion-checkbox {
+  --background-checked: #008a25;
+}

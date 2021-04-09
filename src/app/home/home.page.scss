@@ -26,6 +26,26 @@
   text-decoration: none;
 }
 
+body {
+  text-align: center;
+  align-items: center;
+}
 .mainPage {
   text-align: center;
+}
+
+ion-grid {
+  min-height: 100%;
+}
+
+.row1 {
+  flex: 1;
+}
+
+.row2 {
+  flex: 2;
+}
+
+.row3 {
+  flex: 1;
 }

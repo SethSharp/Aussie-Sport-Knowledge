@@ -1,0 +1,22 @@
+Since this assignment is to record data, it records questions
+So in the future with all custom questions, add them to a array or something/file, then make them retrievable
+
+For part 1 and showcae:
+1. Editing a quiz will require a new modal
+1.5 Then use that in a quiz, pass as observable to the quiz-page
+
+2. Get score accumulated to be added to users and users guess ([correctCount, incorrectCount])
+
+3. At the end of a quiz, nav to a page which says the stats of the game, plus the total earned from the game...
+
+4. Implement the other quizzes
+
+
+Milestone 2:
+1. Get score to save to file, possibly keep users on the file
+2. Charts and cool stuff
+3. Get other users to answer questions...
+
+Save for full game, for now...:
+- Profile editing
+- Timed quizzes
