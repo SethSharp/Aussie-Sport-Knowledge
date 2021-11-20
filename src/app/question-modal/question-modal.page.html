@@ -1,11 +1,22 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>questionModal</ion-title>
+    <ion-title> Create a question</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   <ion-list>
+    <ion-item>
+      <ion-button (click)="exitModal()"> EXIT </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label> Category </ion-label>
+      <ion-select okText="Okay" [(ngModel)]="category">
+        <ion-select-option value="NRL" > NRL </ion-select-option>
+        <ion-select-option value="AFL"> AFL </ion-select-option>
+        <ion-select-option value="CRI"> CRICKET </ion-select-option>
+      </ion-select>
+    </ion-item>
     <ion-item>
       <ion-label>
         Question:
@@ -17,34 +28,36 @@
         Response 1:
         <ion-input type="text" [(ngModel)]="res_1"> </ion-input>
       </ion-label>
-      <ion-checkbox (click)="onChange(1)"> </ion-checkbox>
+      <ion-checkbox (click)="onChange(1)" checked={{isAnswer(1)}}> </ion-checkbox>
     </ion-item>
 
     <ion-item>
       <ion-label>
         Response 2:
-        <ion-input type="text" [(ngModel)]="res_2"> </ion-input>
+        <ion-input type="text" [(ngModel)]="res_2" > </ion-input>
       </ion-label>
-      <ion-checkbox (click)="onChange(2)"> </ion-checkbox>
+      <ion-checkbox (click)="onChange(2)" checked={{isAnswer(2)}}> </ion-checkbox>
     </ion-item>
 
     <ion-item>
       <ion-label>
         Response 3:
-        <ion-input type="text"  [(ngModel)]="res_3"> </ion-input>
+        <ion-input type="text" [(ngModel)]="res_3"> </ion-input>
       </ion-label>
-      <ion-checkbox (click)="onChange(3)"> </ion-checkbox>
+      <ion-checkbox (click)="onChange(3)" checked={{isAnswer(3)}}> </ion-checkbox>
     </ion-item>
 
     <ion-item>
       <ion-label>
         Response 4:
-        <ion-input type="text" [(ngModel)]="res_4"> </ion-input>
+        <ion-input type="text" [(ngModel)]="res_4" > </ion-input>
       </ion-label>
-      <ion-checkbox (click)="onChange(4)"> </ion-checkbox>
+      <ion-checkbox (click)="onChange(4)" checked={{isAnswer(4)}}> </ion-checkbox>
     </ion-item>
-    <ion-button expand="full" (click)="closeModal()"> {{editaddbtn}} </ion-button>
+
+    <ion-button expand="full" (click)="closeModal()">
+      {{editaddbtn}}
+    </ion-button>
+
   </ion-list>
-
-
 </ion-content>

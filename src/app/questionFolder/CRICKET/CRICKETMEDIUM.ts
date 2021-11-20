@@ -1,0 +1,60 @@
+import { Question } from '../question';
+
+export const CRICKETMEDIUM: Question[] = [
+  {
+    question: 'If a Batsman gets out on the first bowl, what is it called?',
+    response_1: 'Golden Goose',
+    response_2: 'Golden Duck',
+    response_3: 'Out on the first bowl',
+    response_4: 'On par',
+    answer: 2,
+  },
+  {
+    question: 'How many runs did Steve Smith make in 2016?',
+    response_1: '509',
+    response_2: '876',
+    response_3: '458',
+    response_4: '488',
+    answer: 1,
+  },
+  {
+    question: 'What is the Ashes trophy called?',
+    response_1: 'Commissioners tidle',
+    response_2: 'Winfield trophy',
+    response_3: 'McClelland Trophy',
+    response_4: 'The Urn',
+    answer: 4,
+  },
+  {
+    question: 'Who is the current coach of the Aussie Cricket Team?',
+    response_1: 'Steve Rixon',
+    response_2: 'Darren Lehmann',
+    response_3: 'Justin Langer',
+    response_4: 'Bob Simpson',
+    answer: 3,
+  },
+  {
+    question: 'Which set of twins played for Australia in 1990?',
+    response_1: "Marshall Brother's",
+    response_2: "Shevill Sister's",
+    response_3: "Bedser Brother's",
+    response_4: "Waugh Brother's",
+    answer: 4,
+  },
+  {
+    question: "What does it men when the Umpire's arm raises, with his finger extended out?",
+    response_1: 'Poor bowl',
+    response_2: 'The Batsman is out',
+    response_3: 'Next bowl',
+    response_4: 'Send off for 10',
+    answer: 2,
+  },
+  {
+    question: 'Who was the only Enlighman to score a centurey in the 2013-2014 series?',
+    response_1: 'Stuart Broad',
+    response_2: 'Moeen Ali',
+    response_3: 'Ben Strokes',
+    response_4: 'Gary Ballance',
+    answer: 2,
+  },
+];

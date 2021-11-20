@@ -1,22 +1,62 @@
-Since this assignment is to record data, it records questions
-So in the future with all custom questions, add them to a array or something/file, then make them retrievable
-
-For part 1 and showcae:
-1. Editing a quiz will require a new modal
-1.5 Then use that in a quiz, pass as observable to the quiz-page
-
-2. Get score accumulated to be added to users and users guess ([correctCount, incorrectCount])
-
-3. At the end of a quiz, nav to a page which says the stats of the game, plus the total earned from the game...
-
-4. Implement the other quizzes
 
 
-Milestone 2:
-1. Get score to save to file, possibly keep users on the file
-2. Charts and cool stuff
-3. Get other users to answer questions...
+AFTER UNI:
+Implement Socket.io by yourself and use the documentation
+Do: ionic server -p 8101, to test run multiple devices
 
-Save for full game, for now...:
-- Profile editing
-- Timed quizzes
+Concepts and ideas:
+- 1v1
+- Add kahoot like multiplayer as well as the original
+- Friend system
+- Ads (Banner only), possible option to get rid of to support servers and creators/volunteers etc
+- Credit page that mentions everyone and their socials on their contributions to the game...
+- Add some defualt profile pics, then allow a personal
+
+
+<div>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+         <div class="fileUpload btn">
+            <img src={{user.img}}>
+          </div>
+        <h1> {{user.name}} </h1>
+      </ion-card-header>
+      <ion-card-content>
+        <h1> Score: {{user.score}} </h1>
+        <p> Highest streak: {{user.bestAnswerStreak}} </p>
+        <p> Current answer streak: {{user.answerSteak}} </p>
+        <p> Longest answer streak: {{user.bestAnswerStreak}} </p>
+        <p> Curret answer streak: {{user.answerSteak}} </p>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Incorrect/correct ratio (General) </ion-card-header>
+      <ion-card-content>
+        <canvas #pieCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Best answered sport </ion-card-header>
+      <ion-card-content>
+        <canvas #bestAnsSport></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Worst answered sport </ion-card-header>
+      <ion-card-content>
+        <canvas #worstAnsSport></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</div>

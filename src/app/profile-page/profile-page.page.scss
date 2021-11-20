@@ -1,0 +1,49 @@
+
+
+.content {
+  text-align: center;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+::-webkit-file-upload-button {
+    background: #008a25;
+    color: white;
+    padding: 8px 25px;
+    font-size: 10px;
+    border-radius: 20px;
+    transition: all 0.15s ease;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+    line-height: 1.5;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    text-align: center;
+}
+img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 40px;
+}

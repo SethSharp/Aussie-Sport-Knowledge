@@ -8,11 +8,14 @@ import { LeaderboardPageRoutingModule } from './leaderboard-routing.module';
 
 import { LeaderboardPage } from './leaderboard.page';
 
+import { ComponentsModule } from './../components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     LeaderboardPageRoutingModule
   ],
   declarations: [LeaderboardPage]

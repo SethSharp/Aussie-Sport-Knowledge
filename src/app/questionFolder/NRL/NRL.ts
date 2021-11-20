@@ -7,14 +7,6 @@ export const NRL: Question[] = [
     response_2: 'Titans',
     response_3: 'Cowboys',
     response_4: 'Warriors',
-    answer: 1
-  },
-  {
-    question: 'Which team is the latest to the NRL?',
-    response_1: 'Storm',
-    response_2: 'Titans',
-    response_3: 'Cowboys',
-    response_4: 'Warriors',
     answer: 2
   },
   {
@@ -23,7 +15,7 @@ export const NRL: Question[] = [
     response_2: 'Broncos v Titans (2011)',
     response_3: 'Cowboys v Boncos (2015)',
     response_4: 'Titans v Rabbitohs (2014)',
-    answer: 31
+    answer: 3
   },
   {
     question: 'Who are the current premiers (The year is 2021)',

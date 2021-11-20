@@ -1,8 +1,7 @@
-import { User } from './../userInfo';
-import { USERS } from './../users';
-import { UserServiceService } from './../user-service.service';
-import { Router } from '@angular/router';
+import { ChartsPage } from './../charts/charts.page';
+import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage-angular'
 
 @Component({
   selector: 'app-leaderboard',
@@ -10,35 +9,60 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leaderboard.page.scss'],
 })
 export class LeaderboardPage implements OnInit {
-  users: User[] = [];
+
+  // ALl users and the host/main user
+  users;
+  host;
+
+  // Back button properties, text is "" so its just an arrow
+  txt=""
+  btnIcon = "arrow-back-outline"
 
   constructor(
-    private router: Router,
-    private userService: UserServiceService
+    private storage: Storage,
+    private modalController: ModalController
   ) {}
 
-  ngOnInit() {this.getUsers();}
+  ngOnInit() {}
 
-  sortUserArray(users) {
-    let n = users.length
-    for (let startPos = 0; startPos < n; startPos++) { // Selection sort
-      let minPos = startPos
+  ionViewDidEnter() {
+    this.getUsers();
+  }
 
-      for (let i = minPos+1; i < n; i++) {
-        if (users[i].totalScore > users[minPos].totalScore) {
+  // Currently this sorts all the users based on their score
+  sortUserArray() {
+    let users = this.users
+    let n = users.length;
+    // Selection sort
+    for (let startPos = 0; startPos < n; startPos++) {
+      let minPos = startPos;
+      for (let i = minPos + 1; i < n; i++) {
+        if (users[i].score > users[minPos].score) {
           minPos = i;
         }
       }
-      let temp = users[startPos]
-      users[startPos] = users[minPos]
-      users[minPos] = temp
+      let temp = users[startPos];
+      users[startPos] = users[minPos];
+      users[minPos] = temp;
     }
-    return users
-  }
-  getUsers(): void {
-    this.userService.getUser(USERS).subscribe((user) => (this.users = user));
-    this.users = this.sortUserArray(this.users)
   }
 
 
+  async viewData(i) {
+    const modal = await this.modalController.create({
+      component: ChartsPage,
+      componentProps: {
+        user: i,
+      },
+    });
+    // Dont need to return anything on dismiss, just a display page
+    return await modal.present();
+  }
+
+  async getUsers() {
+    // Loads users and sorts them based on score
+    this.users = await this.storage.get("players");
+    this.host = await this.storage.get("mainuser")
+    this.sortUserArray()
+  }
 }

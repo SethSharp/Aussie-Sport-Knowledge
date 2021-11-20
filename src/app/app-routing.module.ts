@@ -3,12 +3,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home/:username',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'login-page',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -20,12 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./multiplayer/multiplayer.module').then( m => m.MultiplayerPageModule)
   },
   {
-    path: 'profile-page/:username',
+    path: 'profile',
     loadChildren: () => import('./profile-page/profile-page.module').then( m => m.ProfilePagePageModule)
-  },
-  {
-    path: 'mode-selection',
-    loadChildren: () => import('./mode-selection/mode-selection.module').then( m => m.ModeSelectionPageModule)
   },
   {
     path: 'login-page',
@@ -38,6 +34,18 @@ const routes: Routes = [
   {
     path: 'leaderboard',
     loadChildren: () => import('./leaderboard/leaderboard.module').then( m => m.LeaderboardPageModule)
+  },
+  {
+    path: 'question-summary',
+    loadChildren: () => import('./question-summary/question-summary.module').then( m => m.QuestionSummaryPageModule)
+  },
+  {
+    path: 'multiplayer-quiz',
+    loadChildren: () => import('./multiplayer-quiz/multiplayer-quiz.module').then( m => m.MultiplayerQuizPageModule)
+  },
+  {
+    path: 'charts',
+    loadChildren: () => import('./charts/charts.module').then( m => m.ChartsPageModule)
   },
 ];
 

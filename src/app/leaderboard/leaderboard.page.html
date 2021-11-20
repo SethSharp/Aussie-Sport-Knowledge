@@ -1,21 +1,45 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button> Back </ion-back-button>
+    <ion-buttons vertical="center">
+      <ion-buttons>
+        <ion-back-button
+          [text]="txt"
+          [icon]="btnIcon"
+        > </ion-back-button>
+      </ion-buttons>
     </ion-buttons>
-    <ion-title> Global leaderboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <p *ngIf="users.length==0; else elseBlock">No questions added yet</p>
+<ion-content [fullscreen]="true">
 
-  <ng-template #elseBlock>
-    <ion-list
-      *ngFor="let u of users; index as i">
-      <ion-item>
-        {{ u.name }} - {{u.totalScore}}
-      </ion-item>
-    </ion-list>
-  </ng-template>
+  <div class="text-align: center;">
+    <h1>Leaderboard</h1>
+    <p *ngIf="users == undefined else elseBlock">Your app has no players</p>
+
+    <ng-template #elseBlock>
+
+
+        <ion-item style="text-align: center;">
+
+            <ion-label >
+              <img src={{host.img}}>
+              <br>
+              <b> {{ host.name }} - {{host.score}} </b>
+            </ion-label>
+
+
+        </ion-item>
+        <ion-list *ngFor="let u of users; index as i" (click)="viewData(i)" lines="none">
+          <ion-item>
+              <img src={{u.img}}>
+              <p>{{i+1}}</p>
+            <ion-label class="items">
+              <b> {{ u.name }} - {{u.score}} </b>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+    </ng-template>
+  </div>
 </ion-content>

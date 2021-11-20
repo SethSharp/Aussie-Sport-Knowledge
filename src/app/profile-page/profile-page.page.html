@@ -1,24 +1,63 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button> BACK </ion-back-button>
+    <ion-buttons vertical="center">
+      <ion-buttons>
+        <ion-back-button
+          [text]="txt"
+          [icon]="btnIcon"
+        > </ion-back-button>
+      </ion-buttons>
     </ion-buttons>
-    <ion-title> PROFILE </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <h1>
-    <ion-icon name={{this.imgSrc}} > </ion-icon>
-    {{this.identifier}}
-  </h1>
-  <h3> {{ this.bio }} </h3>
-  <p>
+<ion-content class="content" [fullscreen]="true">
 
-    DISPLAY STATS AND CHART ETC
-    <img src="../assets/images/piechart.png">
+  <ion-button style="margin-top: 2%;" (click)="logOut()" size="large"> Log out </ion-button>
 
-  </p>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Your stats </ion-card-header>
+      <ion-card-content>
 
-  <ion-button (click)="editProfileModal()"> Edit profile </ion-button>
+        <img class="blah" src={{user.img}} alt="Profile">
+
+        <input #imageInp type="file" accept="image/*" class="select-profile-pic" (change)="imageSelections(imageInp.files)">
+
+        <h1 style="text-align: center; padding: 2%">
+          {{ user.name }}
+        </h1>
+        <h1>Score: {{ user.score }}</h1>
+        <p> Longest answer streak: {{user.bestAnswerStreak}} </p>
+        <p> Curret answer streak: {{user.answerSteak}} </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Incorrect/correct ratio (General) </ion-card-header>
+      <ion-card-content>
+        <canvas #pieCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Best answered sport </ion-card-header>
+      <ion-card-content>
+        <canvas #bestAnsSport></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Worst answered sport </ion-card-header>
+      <ion-card-content>
+        <canvas #worstAnsSport></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
 </ion-content>

@@ -1,0 +1,104 @@
+<ion-list lines="none">
+  <div class="back-btn" (click)="hide()"> Back </div>
+
+  <ion-item>
+    <ion-avatar>
+      <ion-fab class="move">
+        <ion-fab-button class="test">
+          <ion-label slot="" class=""> <b> NRL </b> </ion-label>
+        </ion-fab-button>
+        <ion-fab-list side="end" class="move2">
+          <ion-fab-button
+            (click)="navToQuiz('NRLEASY')"
+            color="success"
+            class="test1"
+          >
+            <ion-icon name=""></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button
+            (click)="navToQuiz('NRLMEDI')"
+            color="warning"
+            class="test1"
+          >
+            <ion-icon name=""></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button
+            (click)="navToQuiz('NRLHARD')"
+            color="danger"
+            class="test1"
+          >
+            <ion-icon name=""></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+    </ion-avatar>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar>
+      <ion-fab class="move">
+        <ion-fab-button class="test">
+          <ion-label slot="" class=""> <b> AFL </b> </ion-label>
+        </ion-fab-button>
+        <ion-fab-list side="end" class="move2">
+          <ion-fab-button
+            (click)="navToQuiz('AFLEASY')"
+            color="success"
+            class="test1"
+          >
+            <ion-icon name=""></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button
+            (click)="navToQuiz('AFLMEDI')"
+            color="warning"
+            class="test1"
+          >
+            <ion-icon name=""></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button
+            (click)="navToQuiz('AFLHARD')"
+            color="danger"
+            class="test1"
+          >
+            <ion-icon name=""></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+    </ion-avatar>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar>
+      <!-- <ion-label slot="" class=""> <b> Cricket </b> </ion-label> -->
+      <ion-fab class="move">
+        <ion-fab-button class="test">
+          <!-- <ion-icon name="american-football-outline"></ion-icon> -->
+          <ion-label slot="" class=""> <b> Cricket </b> </ion-label>
+        </ion-fab-button>
+        <ion-fab-list side="end" class="move2">
+          <ion-fab-button
+            (click)="navToQuiz('CRIEASY')"
+            color="success"
+            class="test1"
+          >
+            <ion-icon name=""></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button
+            (click)="navToQuiz('CRIMEDI')"
+            color="warning"
+            class="test1"
+          >
+            <ion-icon name=""></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button
+            (click)="navToQuiz('CRIHARD')"
+            color="danger"
+            class="test1"
+          >
+            <ion-icon name=""></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+    </ion-avatar>
+  </ion-item>
+</ion-list>

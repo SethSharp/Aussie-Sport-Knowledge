@@ -28,11 +28,24 @@
 ion-content {
   --ion-background-color: #ffc409;
 }
-
-ion-button, ion-fab-button { // Background colour
+ion-item {
+  --ion-item-background: #ffc409;
+}
+ion-toolbar {
+  --ion-toolbar-background: #ffc409;
+}
+ion-button, ion-fab-button {
   --background: #008a25;
   --background-hover: #89c790;
   --background-activated: #89c790;
+  border-radius: 20px;
+}
+
+ion-card {
+  --ion-card-background: #ffc409;
+}
+ion-list-header {
+  --ion-list-header-background: red;
 }
 
 ion-back-button { // Text colour
@@ -41,4 +54,8 @@ ion-back-button { // Text colour
 
 ion-checkbox {
   --background-checked: #008a25;
+}
+
+.center-text {
+  text-align: center;
 }
