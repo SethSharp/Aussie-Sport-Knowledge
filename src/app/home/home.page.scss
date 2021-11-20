@@ -16,9 +16,7 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
@@ -26,26 +24,55 @@
   text-decoration: none;
 }
 
+.mainPage {
+  text-align: center;
+}
+
+.move2 {
+  padding-left: 50px;
+  padding-top: 8px;
+}
+
+.pp {
+  width: 70px;
+  height: 70px;
+}
+
+.menu-styling {
+  margin-bottom: 10%;
+}
+
+.test {
+  padding-left: 20px;
+}
+
+h1 {
+  color: #008a25;
+  font-size: 2.25rem;
+}
 body {
   text-align: center;
   align-items: center;
-}
-.mainPage {
-  text-align: center;
 }
 
 ion-grid {
   min-height: 100%;
 }
 
-.row1 {
-  flex: 1;
+ion-item {
+  --min-height: 100px;
 }
 
-.row2 {
-  flex: 2;
+ion-button {
+  width: 65%;
+  height: 5rem;
+  background-color: #008a25;
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 1.8rem;
 }
 
-.row3 {
-  flex: 1;
+ion-footer, ion-item {
+  --background-color: #ffc409;
 }

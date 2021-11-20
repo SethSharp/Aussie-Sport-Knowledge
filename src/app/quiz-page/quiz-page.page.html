@@ -1,39 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title> {{ title }} </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <div class="questions" id="container">
-    <ion-label>
-      {{questions[questionPosition].question}}
-    </ion-label>
-  </div>
-  <br>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-button color="warning"
-      (click)="checkAnswer(1)"> {{questions[questionPosition].response_1}}</ion-button>
-      </ion-col>
-      <ion-col size="6">
-        <ion-button  color="warning"
-      (click)="checkAnswer(2)"> {{questions[questionPosition].response_2}}</ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="6">
-            <ion-button  color="warning"
-      (click)="checkAnswer(3)"> {{questions[questionPosition].response_3}}</ion-button>
-      </ion-col>
-      <ion-col size="6">
-            <ion-button  color="warning"
-      (click)="checkAnswer(4)"> {{questions[questionPosition].response_4}}</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content [fullscreen]="true">
 
+  <h4 style="text-align: center; font-size: 1.6rem;"> Score:{{ score }}</h4>
+
+  <h1 style="text-align: center; font-size: 3rem;">{{counter}}</h1>
+
+  <app-response-selection
+    [questions]="questions"
+    [questionPosition]="questionPosition"
+    [answerFunc]="checkAnswer"
+
+  > </app-response-selection>
 
 </ion-content>

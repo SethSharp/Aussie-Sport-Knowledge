@@ -1,0 +1,49 @@
+.selection {
+  margin-left: 4rem;
+  position: fixed;
+}
+
+.sport {
+  margin-top: 30%;
+  margin-right: 20%;
+  position: fixed;
+}
+
+.test {
+  width: 70px;
+  height: 70px;
+}
+
+.test1 {
+  width: 55px;
+  height: 55px;
+}
+
+.sport-name {
+  margin-top: 1.5rem;
+  position:fixed;
+  margin-left: 1.5rem;
+}
+
+.back-btn {
+  background-color: #ffc409;
+  height: 50px;
+  padding: 15px 0 0 60px;
+}
+
+ion-item {
+  --min-height: 110px;
+}
+
+ion-label {
+  width: 90px;
+}
+
+.move {
+  padding-left: 20px;
+}
+
+.move2 {
+  padding-left: 30px;
+  padding-top: 7px;
+}

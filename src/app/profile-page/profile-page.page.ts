@@ -1,8 +1,15 @@
-import { User } from './../userInfo';
-import { UserServiceService } from './../user-service.service';
-import { Router, ActivatedRoute} from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { USERS } from './../users';
+import { File } from '@ionic-native/file/ngx';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
+import { Router } from '@angular/router';
+import { AccessStorageService } from './../Services/access-storage.service';
+import { ChartsService } from './../Services/charts.service';
+
+import { UserTemplate } from './../User/userTemplate';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Chart, registerables } from 'chart.js';
+import { Storage } from '@ionic/storage-angular';
+
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-profile-page',
@@ -10,49 +17,82 @@ import { USERS } from './../users';
   styleUrls: ['./profile-page.page.scss'],
 })
 export class ProfilePagePage implements OnInit {
+  @ViewChild('bestAnsSport') barCanvas1: ElementRef;
+  private barChart1: Chart;
+
+  @ViewChild('worstAnsSport') barCanvas2: ElementRef;
+  private barChart2: Chart;
+
+  @ViewChild('pieCanvas') pieCanvas: ElementRef;
+  private pieChart: Chart;
+
+  images:any[] = [];
+  imageFile: any; // Eventually add to user in storage
+
+  txt = '';
+  btnIcon = 'arrow-back-outline';
   identifier: String;
   bio: String;
-  imgSrc: String;
-  users: User[] = [];
+  points: Number;
 
-  constructor(private router: Router, private route: ActivatedRoute, private userService: UserServiceService) {}
+  user = UserTemplate;
+  data = [];
+
+
+  constructor(
+    private storage: Storage,
+    public file: File,
+    private chartService: ChartsService,
+    private router: Router,
+    private accessStorage: AccessStorageService,
+  ) {}
 
   ngOnInit() {
-    this.getUsers();
-    this.identifier = this.route.snapshot.paramMap.get('username');
-    this.setUser(this.identifier)
+    this.getuser();
   }
 
-  findUserName(u) {
-    for (let i = 0; i < this.users.length; i++) {
-      if (this.users[i].name == u) {
-        return this.users[i];
-      }
+  async ionViewDidEnter() {
+    this.barChart1 = this.chartService.displayBarChart(
+      this.user,
+      this.barCanvas1,
+      'Correct'
+    );
+    this.barChart2 = this.chartService.displayBarChart(
+      this.user,
+      this.barCanvas2,
+      'Incorrect'
+    );
+    this.pieChart = this.chartService.displayPieChart(
+      this.user,
+      this.pieCanvas
+    );
+  }
+
+  imageSelections(files) {
+    let fileReader = new FileReader()
+    fileReader.onload = e => {
+      this.imageFile = fileReader.result
+      this.saveUser()
     }
-    return false;
-  }
-  setUser(name) {
-    while (true) {
-      let potentialUser = this.findUserName(this.identifier);
-      //JSON.stringify(potentialUser)
-      if (potentialUser != false) {
-        this.bio = potentialUser.description
-        this.imgSrc = potentialUser.profilePicture
-        break
-      } else {
-        alert('Username or password is incorrect');
-      }
-    }
-  }
-  navToHome() {
-    this.router.navigateByUrl('/home');
-  }
-  editProfileModal() {
-    //Opens a modal, which edits the contents of the array of the observable...
-
+    fileReader.readAsDataURL(files[0])
   }
 
-  getUsers(): void {
-    this.userService.getUser(USERS).subscribe((user) => (this.users = user));
+  async saveUser() {
+    this.user.img = this.imageFile
+    await this.storage.set('mainuser', this.user);
+  }
+
+  async logOut() {
+    await this.storage.set('mainuser', this.user);
+    this.barChart1.destroy();
+    this.barChart2.destroy();
+    this.pieChart.destroy();
+    this.accessStorage.logout(this.user);
+    this.router.navigateByUrl('/login-page');
+  }
+
+  async getuser() {
+    this.user = await this.storage.get('mainuser');
+    this.imageFile = await this.storage.get('profilePic');
   }
 }

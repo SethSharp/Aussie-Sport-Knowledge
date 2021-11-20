@@ -1,6 +1,9 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+
+$alert-ios-background: #010b35;
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -234,3 +237,42 @@
     --ion-card-background: #1e1e1e;
   }
 }
+
+ion-alert {
+  --background: #ffc409 !important;
+  .alert-title {
+    color: #008a25 !important;
+  }
+
+  .alert-checkbox-label {
+    color: #008a25 !important;
+  }
+
+  .alert-button-inner {
+    --background: #008a25 !important;
+
+  }
+
+  .alert-button {
+    color: #ffc409 !important;
+  }
+
+  .alert-button-inner {
+    --background: #008a25 !important;
+  }
+
+  .alert-button-group {
+    background-color: #008a25 !important;
+  }
+
+  .alert-input-group .alert-input-group .alert-input-wrapper {
+    --background: #ffc409 !important;
+    color: #008a25 !important;
+  }
+
+  ion-checkbox {
+    --background-checked: #008a25;
+  }
+}
+
+

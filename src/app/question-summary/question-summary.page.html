@@ -1,0 +1,30 @@
+<ion-content>
+  <div style="text-align: center">
+    <h1>Answer</h1>
+    <p>The answer was: {{answer}}</p>
+
+    <p *ngIf="users==undefined; else elseBlock">Current leaderboard</p>
+    <ng-template #elseBlock>
+      <ion-list *ngFor="let u of users; index as i">
+        <ion-item>
+          <ion-avatar>
+            <img src="{{u.img}}" />
+          </ion-avatar>
+          <div style="margin-left: 25%">
+
+            <h5 class="players">
+
+              <ion-icon name="ellipse" color="{{colour(i)}}"> </ion-icon>
+              {{ u.name }} - {{scores[i]}}
+
+            </h5>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ng-template>
+
+    <ion-button (click)="closePage()" class="exit-btn">
+      {{buttonTxt}}
+    </ion-button>
+  </div>
+</ion-content>

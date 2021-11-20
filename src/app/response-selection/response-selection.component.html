@@ -1,0 +1,20 @@
+<div style="text-align: center" class="center-all">
+  <h5> {{ questions[questionPosition].question }} </h5>
+  <ion-button (click)="t(1, $event)">
+    {{ questions[questionPosition].response_1 }}</ion-button>
+  <br /><br />
+  <ion-button (click)="t(2, $event)">
+    {{ questions[questionPosition].response_2 }}</ion-button
+  >
+  <br /><br />
+  <ion-button (click)="t(3, $event)">
+    {{ questions[questionPosition].response_3 }}</ion-button
+  >
+  <br /><br />
+  <ion-button (click)="t(4, $event)">
+    {{ questions[questionPosition].response_4 }}</ion-button
+  >
+  <br /><br />
+
+  <p id="text"></p>
+</div>

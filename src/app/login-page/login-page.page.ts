@@ -1,45 +1,41 @@
-import { USERS } from './../users';
-import { UserServiceService } from './../user-service.service';
-import { User } from './../userInfo';
+import { AlertController } from '@ionic/angular';
+import { AccessStorageService } from './../Services/access-storage.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.page.html',
   styleUrls: ['./login-page.page.scss'],
 })
-export class LoginPagePage implements OnInit {
-  // Create an array that holds the user info
-  // Then it can be compared
+export class LoginPage implements OnInit {
+
   username = '';
-  password = '';
-  users: User[] = [];
 
-  constructor(private router: Router, private userService: UserServiceService) {}
+  constructor(
+    private route: Router,
+    private accessStorage: AccessStorageService,
+    private alertController: AlertController
+  ) {}
 
-  ngOnInit() {
-    this.getUsers();
+  ngOnInit() {}
+
+  // Display an alert, if the name entered is ""
+  async displayAlert(title) {
+    const alert = await this.alertController.create({
+      header: title,
+    });
+    await alert.present();
   }
 
-  findUserName(u, p) {
-    for (let i = 0; i < this.users.length; i++) {
-      if (this.users[i].name == u && this.users[i].password == p) {
-        return this.users[i].name
-      }
-    }return false
-  }
-  login() {
-    if (this.username.length > 0 && this.username) {
-      let potentialUser = this.findUserName(this.username, this.password);
-      //JSON.stringify(potentialUser)
-      if (potentialUser != false) {
-        this.router.navigateByUrl('/home/' + this.username);
-      } else {
-        alert('Username or password is incorrect');
-      }
+  async signUp() {
+    if (this.username == '') {
+      // Set some text on the page to this \/
+      this.displayAlert("Please enter in a name")
+      return;
     }
-  }
-  getUsers(): void {
-    this.userService.getUser(USERS).subscribe((user) => (this.users = user));
+    // Uses a service to use a few functions
+    this.accessStorage.login(this.username);
+    this.route.navigateByUrl('/home');
   }
 }

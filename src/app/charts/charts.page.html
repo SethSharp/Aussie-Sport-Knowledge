@@ -1,0 +1,45 @@
+<ion-content style="text-align: center;">
+  <ion-button style="margin-top: 30px;" (click)="exit()"> Exit </ion-button>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+         <div class="fileUpload btn">
+            <img src={{user.img}}>
+          </div>
+        <h1> {{user.name}} </h1>
+      </ion-card-header>
+      <ion-card-content>
+        <h1> Score: {{user.score}} </h1>
+        <p> Highest streak: {{user.bestAnswerStreak}} </p>
+        <p> Current answer streak: {{user.answerSteak}} </p>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Incorrect/correct ratio (General) </ion-card-header>
+      <ion-card-content>
+        <canvas #pieCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Best answered sport </ion-card-header>
+      <ion-card-content>
+        <canvas #bestAnsSport></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header> Worst answered sport </ion-card-header>
+      <ion-card-content>
+        <canvas #worstAnsSport></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
