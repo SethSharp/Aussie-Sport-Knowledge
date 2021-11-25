@@ -93,6 +93,7 @@ export class ProfilePagePage implements OnInit {
 
   async getuser() {
     this.user = await this.storage.get('mainuser');
+    console.log(this.user);
     this.imageFile = await this.storage.get('profilePic');
   }
 }

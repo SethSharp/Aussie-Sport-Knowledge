@@ -24,12 +24,12 @@ export class AccessStorageService {
     if ((await this.storage.get('mainuser')) == null) {
       this.display();
     }
-    if ((await this.storage.get('players')) == null) {
-      await this.storage.set('players', []);
-    }
-    if ((await this.storage.get('selectedPlayers')) == null) {
-      await this.storage.set('selectedPlayers', []);
-    }
+    // if ((await this.storage.get('players')) == null) {
+    //   await this.storage.set('players', []);
+    // }
+    // if ((await this.storage.get('selectedPlayers')) == null) {
+    //   await this.storage.set('selectedPlayers', []);
+    // }
   }
 
   async display() {
@@ -55,25 +55,26 @@ export class AccessStorageService {
   // Sets up the main user (Any from the players or new one)
   // SO anyone can be host, otherwise the original host wouldn't get any chance to get points in mutltiplayer
   async login(name) {
-    await this.getUsers();
+    // await this.getUsers();
 
-    let userIndex = this.getExisitingUser(name);
-    let newMainUser = UserTemplate;
+    // let userIndex = this.getExisitingUser(name);
+    // let newMainUser = UserTemplate;
 
-    // New user
-    if (userIndex == -1) {
-      newMainUser.name = name;
-    } else {
-      newMainUser = this.currentPlayers[userIndex];
-      this.currentPlayers.splice(userIndex, 1);
-      // Need to reset id's
-      for (let i = userIndex; i < this.currentPlayers.length; i++) {
-        this.currentPlayers[i].id = i;
-      }
-    }
-    newMainUser.id = -1;
-    await this.storage.set('mainuser', newMainUser);
-    await this.storage.set('players', this.currentPlayers);
+    // // New user
+    // if (userIndex == -1) {
+    //   newMainUser.name = name;
+    // } else {
+    //   newMainUser = this.currentPlayers[userIndex];
+    //   this.currentPlayers.splice(userIndex, 1);
+    //   // Need to reset id's
+    //   for (let i = userIndex; i < this.currentPlayers.length; i++) {
+    //     this.currentPlayers[i].id = i;
+    //   }
+    // }
+    // newMainUser.id = -1;
+    // await this.storage.set('mainuser', newMainUser);
+    // await this.storage.set('players', this.currentPlayers);
+
   }
 
   // Logs out main user, by resetting their id and adding to normal plauers
@@ -100,5 +101,11 @@ export class AccessStorageService {
       }
     }
     return index;
+  }
+
+
+  // Apart of the new use for this service
+  async addUserLocally(user:any) {
+    await this.storage.set('mainuser', user);
   }
 }
