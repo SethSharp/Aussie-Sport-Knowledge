@@ -61,10 +61,7 @@ export class HomePage {
 
   // Navigates to the main users profile
   navToProf() {
-    this.getSomeURI().subscribe((d) => {
-      console.log(d);
-    })
-    // this.router.navigateByUrl('/profile');
+    this.router.navigateByUrl('/profile');
   }
 
   // Navigates to the leaderboard page
